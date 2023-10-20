@@ -16,6 +16,8 @@
 		B86FD27D2AE241680002E19C /* IOTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FD27C2AE241680002E19C /* IOTTests.swift */; };
 		B86FD2872AE241680002E19C /* IOTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FD2862AE241680002E19C /* IOTUITests.swift */; };
 		B86FD2892AE241680002E19C /* IOTUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FD2882AE241680002E19C /* IOTUITestsLaunchTests.swift */; };
+		B86FD2962AE241B50002E19C /* BeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FD2952AE241B50002E19C /* BeaconView.swift */; };
+		B86FD2982AE258B00002E19C /* BleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FD2972AE258B00002E19C /* BleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		B86FD2822AE241680002E19C /* IOTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOTUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86FD2862AE241680002E19C /* IOTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOTUITests.swift; sourceTree = "<group>"; };
 		B86FD2882AE241680002E19C /* IOTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOTUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B86FD2952AE241B50002E19C /* BeaconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconView.swift; sourceTree = "<group>"; };
+		B86FD2972AE258B00002E19C /* BleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				B86FD2722AE241680002E19C /* Preview Assets.xcassets */,
+				B86FD2952AE241B50002E19C /* BeaconView.swift */,
+				B86FD2972AE258B00002E19C /* BleView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -265,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B86FD2982AE258B00002E19C /* BleView.swift in Sources */,
 				B86FD2662AE241660002E19C /* IOTApp.swift in Sources */,
 				B86FD26B2AE241660002E19C /* IOT.xcdatamodeld in Sources */,
+				B86FD2962AE241B50002E19C /* BeaconView.swift in Sources */,
 				B86FD26D2AE241660002E19C /* ContentView.swift in Sources */,
 				B86FD2682AE241660002E19C /* Persistence.swift in Sources */,
 			);
@@ -428,8 +436,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IOT/Preview Content\"";
+				DEVELOPMENT_TEAM = Q78G9P7S2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Access Health Data from a Device";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "your location is needed for display related information to you";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -440,12 +451,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.IOT;
+				PRODUCT_BUNDLE_IDENTIFIER = leocheung.IOT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -464,8 +475,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IOT/Preview Content\"";
+				DEVELOPMENT_TEAM = Q78G9P7S2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Access Health Data from a Device";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "your location is needed for display related information to you";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -476,12 +490,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.IOT;
+				PRODUCT_BUNDLE_IDENTIFIER = leocheung.IOT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

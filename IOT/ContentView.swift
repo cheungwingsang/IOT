@@ -16,33 +16,21 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
 
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
+   
+        var body: some View {
+            TabView {
+                BeaconView().tabItem {
+                    Image(systemName: "waveform.circle.fill")
+                    Text("iBeacons")
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                BleView().tabItem {
+                    Image(systemName: "waveform.circle.fill")
+                    Text("BLE")
                 }
             }
-            Text("Select an item")
         }
-    }
+    
+    
 
     private func addItem() {
         withAnimation {
