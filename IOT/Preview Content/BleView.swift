@@ -58,16 +58,28 @@ class BleClient: NSObject, ObservableObject {
     }
     
     func registerHeartRateMeasurement() {
-        // TODO: Implement heart rate measurement registration
+        guard let characteristic = heartRateMeasurementCharacteristic else { return }
+        heartRateMonitor?.setNotifyValue(true, for: characteristic)
     }
-    
+
     func readBodySensorLocation() {
-        // TODO: Implement body sensor location reading
+        guard let characteristic = bodySensorLocationCharacteristic else { return }
+        heartRateMonitor?.readValue(for: characteristic)
+    }
+
+    func writeHeartRateControlPoint(_ controlPoint: Data) {
+        guard let characteristic = heartRateControlPointCharacteristic else { return }
+        heartRateMonitor?.writeValue(controlPoint, for: characteristic, type: .withResponse)
     }
     
-    func writeHeartRateControlPoint(_ controlPoint: Data) {
-        // TODO: Implement writing to the heart rate control point
+   
+}
+extension BleClient: CBCentralManagerDelegate {
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        status = central.state.stringValue
     }
+    
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber){
         
         print(peripheral);
@@ -83,12 +95,6 @@ class BleClient: NSObject, ObservableObject {
         
         peripheral.delegate = self
         peripheral.discoverServices(nil)
-    }
-}
-extension BleClient: CBCentralManagerDelegate {
-    
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        status = central.state.stringValue
     }
 }
 
@@ -136,6 +142,70 @@ extension BleClient: CBPeripheralDelegate {
             if (service.uuid == CBUUID.heartRateServiceUUID) {
                 peripheral.discoverCharacteristics(nil, for: service)
             }
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        
+        guard let characteristics = service.characteristics else { return }
+        
+        print(characteristics)
+        status = "Discovered Characteristics: \(characteristics)"
+        
+        for characteristic in characteristics {
+            
+            if (characteristic.uuid == CBUUID.heartRateMeasurementUUID) {
+                heartRateMeasurementCharacteristic = characteristic
+            }
+            
+            if (characteristic.uuid == CBUUID.bodySensorLocationUUID) {
+                bodySensorLocationCharacteristic = characteristic
+            }
+            
+            if (characteristic.uuid == CBUUID.heartRateControlPointUUID) {
+                heartRateControlPointCharacteristic = characteristic
+            }
+        }
+    }
+        
+        func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+            
+            guard let data = characteristic.value else { return }
+            
+            switch characteristic.uuid {
+                
+            case CBUUID.heartRateMeasurementUUID:
+                
+                heartRateMeasurement = UInt16(bigEndian: data.withUnsafeBytes {
+                    $0.load(as: UInt16.self)
+                })
+                
+            case CBUUID.bodySensorLocationUUID:
+                
+                bodySensorLocation = data.bodySensorLocation
+                
+            default:
+                print("Characteristic not handled.")
+            }
+        }
+    
+}
+
+extension Data {
+    var bodySensorLocation: String {
+        
+        guard let byte = self.first else { return "Error" }
+        
+        switch byte {
+        case 0: return "Other"
+        case 1: return "Chest"
+        case 2: return "Wrist"
+        case 3: return "Finger"
+        case 4: return "Hand"
+        case 5: return "Ear Lobe"
+        case 6: return "Foot"
+        default:
+            return "Reserved for future use"
         }
     }
 }
