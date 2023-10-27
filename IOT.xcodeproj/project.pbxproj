@@ -18,6 +18,8 @@
 		B86FD2892AE241680002E19C /* IOTUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FD2882AE241680002E19C /* IOTUITestsLaunchTests.swift */; };
 		B86FD2962AE241B50002E19C /* BeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FD2952AE241B50002E19C /* BeaconView.swift */; };
 		B86FD2982AE258B00002E19C /* BleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FD2972AE258B00002E19C /* BleView.swift */; };
+		B8DC7D512AEB92C30065D2C8 /* StaticChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DC7D502AEB92C30065D2C8 /* StaticChart.swift */; };
+		B8DC7D532AEB92FD0065D2C8 /* TallyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DC7D522AEB92FD0065D2C8 /* TallyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		B86FD2882AE241680002E19C /* IOTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOTUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B86FD2952AE241B50002E19C /* BeaconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconView.swift; sourceTree = "<group>"; };
 		B86FD2972AE258B00002E19C /* BleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleView.swift; sourceTree = "<group>"; };
+		B8DC7D502AEB92C30065D2C8 /* StaticChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticChart.swift; sourceTree = "<group>"; };
+		B8DC7D522AEB92FD0065D2C8 /* TallyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				B86FD2722AE241680002E19C /* Preview Assets.xcassets */,
 				B86FD2952AE241B50002E19C /* BeaconView.swift */,
 				B86FD2972AE258B00002E19C /* BleView.swift */,
+				B8DC7D502AEB92C30065D2C8 /* StaticChart.swift */,
+				B8DC7D522AEB92FD0065D2C8 /* TallyView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -273,6 +279,8 @@
 			files = (
 				B86FD2982AE258B00002E19C /* BleView.swift in Sources */,
 				B86FD2662AE241660002E19C /* IOTApp.swift in Sources */,
+				B8DC7D512AEB92C30065D2C8 /* StaticChart.swift in Sources */,
+				B8DC7D532AEB92FD0065D2C8 /* TallyView.swift in Sources */,
 				B86FD26B2AE241660002E19C /* IOT.xcdatamodeld in Sources */,
 				B86FD2962AE241B50002E19C /* BeaconView.swift in Sources */,
 				B86FD26D2AE241660002E19C /* ContentView.swift in Sources */,

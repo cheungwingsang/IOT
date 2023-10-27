@@ -27,6 +27,15 @@ struct ContentView: View {
                     Image(systemName: "waveform.circle.fill")
                     Text("BLE")
                 }
+                StaticChart().tabItem {
+                    Image(systemName: "waveform.circle.fill")
+                    Text("Static")
+                }
+                TallyView().tabItem {
+                    Image(systemName: "waveform.circle.fill")
+                    Text("Tally")
+                }
+
             }
         }
     
